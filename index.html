@@ -1,0 +1,508 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Auto Lamp | Automotive Lighting & Car Parts</title>
+  <meta name="description" content="Explore automotive lights, headlights, bulbs, bumpers and selected exterior car parts at Auto Lamp, Aspanda Trade Fair. Contact us for current prices and availability.">
+  <meta name="theme-color" content="#101010">
+
+  <style>
+    :root {
+      --black: #101010;
+      --dark: #181818;
+      --gold: #d9ad55;
+      --cream: #f7f5ef;
+      --white: #ffffff;
+      --muted: #b8b8b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--white);
+      background: var(--black);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; object-fit: cover; }
+    button, input, textarea { font: inherit; }
+
+    .container { width: min(1120px, 90%); margin: auto; }
+
+    .topbar {
+      background: var(--gold);
+      color: #17130b;
+      text-align: center;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: .5px;
+    }
+
+    header {
+      background: #101010;
+      border-bottom: 1px solid #303030;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .logo span { color: var(--gold); }
+
+    nav { display: flex; align-items: center; gap: 20px; }
+    nav a { font-size: 13px; color: #eee; }
+    nav a:hover { color: var(--gold); }
+
+    .btn {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      background: var(--gold);
+      color: #17130b;
+      padding: 12px 19px;
+      border-radius: 3px;
+      font-weight: bold;
+      font-size: 13px;
+      text-align: center;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .btn:hover { background: #f0cc7b; }
+    .btn-outline { background: transparent; color: var(--gold); }
+    .btn-outline:hover { color: #17130b; }
+
+    .hero {
+      min-height: 530px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(8,8,8,.96), rgba(8,8,8,.76) 52%, rgba(8,8,8,.3)),
+        url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    }
+
+    .hero-content { max-width: 680px; padding: 76px 0; }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 3px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(38px, 6vw, 66px);
+      line-height: 1.08;
+      margin: 18px 0;
+      letter-spacing: -1.5px;
+    }
+
+    h1 span, .gold { color: var(--gold); }
+
+    .hero p { color: #e0e0e0; max-width: 540px; margin-bottom: 26px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .trust-strip {
+      background: #1b1b1b;
+      border-top: 1px solid #303030;
+      border-bottom: 1px solid #303030;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 24px 0;
+      text-align: center;
+    }
+
+    .trust-grid strong { display: block; color: var(--gold); font-size: 14px; }
+    .trust-grid span { color: #c4c4c4; font-size: 12px; }
+
+    section { padding: 76px 0; }
+
+    .section-heading { text-align: center; margin-bottom: 35px; }
+    .section-heading h2 { font-size: clamp(27px, 4vw, 39px); line-height: 1.2; margin: 10px 0; }
+    .section-heading p { max-width: 620px; color: #bdbdbd; margin: 0 auto; font-size: 14px; }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .product {
+      background: #191919;
+      border: 1px solid #303030;
+      overflow: hidden;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .product:hover { transform: translateY(-4px); border-color: var(--gold); }
+
+    .product img { height: 215px; background: #292929; }
+    .product-info { padding: 20px; }
+    .product h3 { font-size: 18px; margin-bottom: 8px; }
+    .product p { color: #bdbdbd; font-size: 13px; margin-bottom: 17px; }
+    .product .btn { width: 100%; }
+
+    .note { text-align: center; color: #bdbdbd; font-size: 12px; margin-top: 20px; }
+
+    .about { background: var(--cream); color: #191919; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; align-items: center; }
+    .about img { height: 370px; border-radius: 4px; }
+    .about h2 { font-size: clamp(28px, 4vw, 40px); line-height: 1.2; margin: 12px 0 18px; }
+    .about p { color: #4e4e4e; margin-bottom: 15px; font-size: 14px; }
+    .about .eyebrow { color: #8b651c; }
+    .checklist { list-style: none; margin: 20px 0; }
+    .checklist li { margin: 9px 0; font-size: 14px; }
+    .checklist li::before { content: "✓"; color: #987020; font-weight: bold; margin-right: 10px; }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .step { border: 1px solid #333; background: #191919; padding: 25px; }
+    .step-number { color: var(--gold); font-size: 25px; font-weight: 900; }
+    .step h3 { margin: 9px 0; font-size: 17px; }
+    .step p { color: #bdbdbd; font-size: 13px; }
+
+    .faq { background: #f7f5ef; color: #171717; }
+    .faq-list { max-width: 800px; margin: auto; }
+    details { border-bottom: 1px solid #dedbd2; padding: 18px 0; }
+    summary { cursor: pointer; font-weight: bold; font-size: 15px; }
+    details p { color: #555; font-size: 14px; padding-top: 12px; }
+
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; }
+    .contact-grid h2 { font-size: 32px; line-height: 1.2; margin: 10px 0 16px; }
+    .contact-grid p { color: #bdbdbd; font-size: 14px; margin-bottom: 18px; }
+    .contact-card { background: #191919; border: 1px solid #333; padding: 25px; margin-bottom: 12px; }
+    .contact-card strong { color: var(--gold); display: block; margin-bottom: 5px; }
+    .contact-card a { overflow-wrap: anywhere; }
+
+    footer { border-top: 1px solid #333; background: #090909; padding: 30px 0; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    footer p { color: #999; font-size: 12px; }
+    footer .logo { font-size: 20px; }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 17px;
+      bottom: 18px;
+      z-index: 20;
+      background: #25d366;
+      color: #071c0e;
+      border-radius: 30px;
+      padding: 12px 17px;
+      font-size: 13px;
+      font-weight: bold;
+      box-shadow: 0 5px 20px #0008;
+    }
+
+    @media (max-width: 760px) {
+      .nav { min-height: 68px; flex-wrap: wrap; padding: 12px 0; }
+      .logo { font-size: 21px; }
+      nav { order: 3; width: 100%; gap: 17px; overflow-x: auto; padding: 4px 0; }
+      nav a { white-space: nowrap; font-size: 12px; }
+      .nav > .btn { padding: 9px 11px; font-size: 11px; }
+      .hero { min-height: 470px; }
+      .hero-content { padding: 58px 0; }
+      .trust-grid { gap: 10px; }
+      .trust-grid strong { font-size: 12px; }
+      .trust-grid span { font-size: 10px; }
+      section { padding: 58px 0; }
+      .categories { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .product img { height: 145px; }
+      .product-info { padding: 13px; }
+      .product h3 { font-size: 15px; }
+      .product p { font-size: 12px; }
+      .product .btn { padding: 10px 6px; font-size: 11px; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 25px; }
+      .about img { height: 250px; }
+      .steps { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 380px) {
+      .categories { grid-template-columns: 1fr; }
+      .product img { height: 210px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    AUTOMOTIVE LIGHTING & SELECTED CAR PARTS · ASPANDA TRADE FAIR
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#home">AUTO <span>LAMP</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About Us</a>
+        <a href="#faq">FAQs</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn" href="https://wa.me/2348133411732?text=Hello%20Auto%20Lamp%2C%20I%20want%20to%20make%20an%20enquiry.">Enquire Now</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">See the difference</div>
+          <h1>Quality Car Lights.<br><span>Parts You Can Find.</span></h1>
+          <p>
+            Looking for automotive lighting or selected exterior car parts?
+            Explore our product categories and contact Auto Lamp to confirm
+            availability and today's price.
+          </p>
+          <div class="actions">
+            <a class="btn" href="#products">Explore Our Products</a>
+            <a class="btn btn-outline" href="https://wa.me/2348133411732?text=Hello%20Auto%20Lamp%2C%20please%20help%20me%20with%20a%20product%20enquiry.">Chat on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="container trust-grid">
+        <div><strong>PRODUCT ENQUIRIES</strong><span>Ask about what you need</span></div>
+        <div><strong>CURRENT PRICES</strong><span>Confirm before ordering</span></div>
+        <div><strong>DIRECT CONTACT</strong><span>Speak with Auto Lamp</span></div>
+      </div>
+    </div>
+
+    <section id="products">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Explore our range</div>
+          <h2>Find the Parts You Need</h2>
+          <p>
+            Browse our main categories. Contact us with your vehicle details
+            and the item you are looking for so we can discuss availability.
+          </p>
+        </div>
+
+        <div class="categories">
+          <article class="product">
+            <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=700&q=80" alt="Automotive headlight and vehicle parts" loading="lazy">
+            <div class="product-info">
+              <h3>Headlights</h3>
+              <p>Ask about headlight options for your vehicle.</p>
+              <a class="btn" href="https://wa.me/2348133411732?text=Hello%20Auto%20Lamp%2C%20I%20am%20looking%20for%20headlights.">Ask for Availability</a>
+            </div>
+          </article>
+
+          <article class="product">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=700&q=80" alt="Modern car exterior" loading="lazy">
+            <div class="product-info">
+              <h3>Headlight Bulbs</h3>
+              <p>Enquire about bulbs and automotive lighting options.</p>
+              <a class="btn" href="https://wa.me/2348133411732?text=Hello%20Auto%20Lamp%2C%20I%20need%20headlight%20bulbs.">Ask for Availability</a>
+            </div>
+          </article>
+
+          <article class="product">
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=700&q=80" alt="Car exterior and lighting inspiration" loading="lazy">
+            <div class="product-info">
+              <h3>Tail Lights</h3>
+              <p>Ask about rear lights and vehicle lighting parts.</p>
+              <a class="btn" href="https://wa.me/2348133411732?text=Hello%20Auto%20Lamp%2C%20I%20am%20looking%20for%20tail%20lights.">Ask for Availability</a>
+            </div>
+          </article>
+
+          <article class="product">
+            <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=700&q=80" alt="Car exterior" loading="lazy">
+            <div class="product-info">
+              <h3>Fog Lights & Other Lights</h3>
+              <p>Enquire about fog lights and other lighting products.</p>
+              <a class="btn" href="https://wa.me/2348133411732?text=Hello%20Auto%20Lamp%2C%20I%20need%20fog%20lights%20or%20other%20car%20lights.">Ask for Availability</a>
+            </div>
+          </article>
+
+          <article class="product">
+            <img src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=700&q=80" alt="Car body and exterior" loading="lazy">
+            <div class="product-info">
+              <h3>Bumpers</h3>
+              <p>Tell us your car model and the bumper you need.</p>
+              <a class="btn" href="https://wa.me/2348133411732?text=Hello%20Auto%20Lamp%2C%20I%20am%20looking%20for%20a%20bumper.">Ask for Availability</a>
+            </div>
+          </article>
+
+          <article class="product">
+            <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=700&q=80" alt="Automotive exterior parts" loading="lazy">
+            <div class="product-info">
+              <h3>Other Exterior Parts</h3>
+              <p>Ask us about selected body and exterior parts.</p>
+              <a class="btn" href="https://wa.me/2348133411732?text=Hello%20Auto%20Lamp%2C%20I%20need%20a%20car%20exterior%20part.">Make an Enquiry</a>
+            </div>
+          </article>
+        </div>
+
+        <p class="note">Prices are not displayed because market prices may change. Contact us for current pricing and availability. Product images shown here are temporary examples and will be replaced with your actual stock photos.</p>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div>
+          <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1000&q=85" alt="Automotive parts and workshop setting" loading="lazy">
+        </div>
+        <div>
+          <div class="eyebrow">Get to know us</div>
+          <h2>Your Automotive Parts Enquiry Starts Here.</h2>
+          <p>
+            Auto Lamp helps customers enquire about automotive lighting and
+            selected exterior car parts. We aim to make it easier to identify
+            what you need and contact us for the details.
+          </p>
+          <p>
+            To help us assist you, please share your vehicle make, model,
+            year, and a photo or part number where available.
+          </p>
+          <ul class="checklist">
+            <li>Automotive lighting enquiries</li>
+            <li>Selected exterior body parts</li>
+            <li>Current price confirmation before ordering</li>
+            <li>Direct contact for product questions</li>
+          </ul>
+          <a class="btn" href="https://wa.me/2348133411732?text=Hello%20Auto%20Lamp%2C%20I%20would%20like%20to%20make%20an%20enquiry.">Contact Auto Lamp</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-to-order">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Simple and straightforward</div>
+          <h2>How to Make an Enquiry</h2>
+          <p>Three simple steps to get started with the part you need.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">01</div>
+            <h3>Choose Your Product</h3>
+            <p>Browse the categories and identify the item you want.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">02</div>
+            <h3>Send Your Details</h3>
+            <p>Tell us your vehicle make, model, year, and the part you need.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">03</div>
+            <h3>Confirm Price & Availability</h3>
+            <p>Contact us to confirm current pricing and the next steps before ordering.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Need to know?</div>
+          <h2>Frequently Asked Questions</h2>
+          <p>Helpful answers to common questions from customers.</p>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary>How do I know the current price?</summary>
+            <p>Our prices may change with market conditions. Contact us with the product you want so we can confirm the current price before you order.</p>
+          </details>
+          <details>
+            <summary>How can I check if a part fits my car?</summary>
+            <p>Send us your vehicle make, model, year, and, if possible, a photo or part number. We can use those details to help with your enquiry.</p>
+          </details>
+          <details>
+            <summary>How do I enquire about a product?</summary>
+            <p>Tap any product enquiry button on this website to open WhatsApp with a prepared message. You can then add more details about the item you need.</p>
+          </details>
+          <details>
+            <summary>Where is Auto Lamp located?</summary>
+            <p>Auto Lamp is located at Aspanda Trade Fair. Contact us for further directions and arrangements.</p>
+          </details>
+          <details>
+            <summary>Do you sell tyres?</summary>
+            <p>No. Auto Lamp focuses on automotive lighting and selected exterior car parts. We do not sell tyres.</p>
+          </details>
+          <details>
+            <summary>Can I ask about an item before buying?</summary>
+            <p>Yes. Contact us to enquire about a product, its availability, and its current price before making an order.</p>
+          </details>
+          <details>
+            <summary>Do you have every product displayed on this website?</summary>
+            <p>Please contact us to confirm availability. Items shown on the website are examples of our product categories, and the images will be updated to show actual products.</p>
+          </details>
+          <details>
+            <summary>How can I contact Auto Lamp privately?</summary>
+            <p>You can email us at okwutex405013@gmail.com. You can also use the WhatsApp enquiry buttons to contact our business number.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-grid">
+        <div>
+          <div class="eyebrow">We are ready to hear from you</div>
+          <h2>Looking for a Particular Car Part?</h2>
+          <p>
+            Tell us what you need. Include your vehicle details and, if
+            possible, a photo of the part so we can understand your enquiry.
+          </p>
+          <div class="actions">
+            <a class="btn" href="https://wa.me/2348133411732?text=Hello%20Auto%20Lamp%2C%20I%20would%20like%20to%20ask%20about%20a%20car%20part.">Message on WhatsApp</a>
+            <a class="btn btn-outline" href="mailto:okwutex405013@gmail.com?subject=Auto%20Lamp%20Product%20Enquiry">Send an Email</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="contact-card">
+            <strong>Business Name</strong>
+            <span>Auto Lamp</span>
+          </div>
+          <div class="contact-card">
+            <strong>Location</strong>
+            <span>Aspanda Trade Fair</span>
+          </div>
+          <div class="contact-card">
+            <strong>WhatsApp / Phone</strong>
+            <a href="https://wa.me/2348133411732">+234 813 341 1732</a>
+          </div>
+          <div class="contact-card">
+            <strong>Email</strong>
+            <a href="mailto:okwutex405013@gmail.com">okwutex405013@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+    
